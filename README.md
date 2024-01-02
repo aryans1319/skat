@@ -30,3 +30,6 @@ Redis serves as a vital messaging broker, enabling effective communication among
 - **Aiven Cloud Service:** Hosting the Redis instance for reliability and scalability.
 - **TurboRepo:** Scaling a monorepo setup for streamlined code management across modules/services.
 
+## Screenshots
+<img src="https://github.com/aryans1319/skat/assets/72180855/dd236b3c-d451-4321-ae1b-a28cab524053" alt="Screenshot 2" width="750">
+<img src="https://github.com/aryans1319/skat/assets/72180855/4b342afa-33b0-4997-8c4a-9383a54a095a" alt="Screenshot 3" width="750">
