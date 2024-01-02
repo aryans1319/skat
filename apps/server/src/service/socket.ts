@@ -26,6 +26,9 @@ class SocketService {
                 origin: "*",
             }
         });
+        // subscribing to the message channel so that 
+        // so that all client connected to the server can receive the messages
+        subscriber.subscribe("MESSAGES")
     }
     
     public socketListeners(){
@@ -41,6 +44,15 @@ class SocketService {
                 await publisher.publish("MESSAGES", JSON.stringify({ message }));
             });
         });
+
+        // if redis rec msg then we check the channel and 
+        // forward all the messages as it is to the client
+        subscriber.on('message', (channel, message) => {
+            if(channel === 'MESSAGES'){
+                console.log("new message from redis", message);
+                io.emit("message", message)
+            }
+        })
     }
 
     get io(){
