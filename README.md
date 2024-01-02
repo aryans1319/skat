@@ -1,81 +1,32 @@
-# Turborepo starter
+![Screenshot from 2024-01-02 20-06-22](https://github.com/aryans1319/skat/assets/72180855/6cf1e979-9bbc-4115-9489-030ff468d14f)
+# Skat - A scalable real-time chat application using Redis PubSub Architecture for scaling web-sockets
+Skat is a powerful real-time chat application built for seamless communication among multiple users concurrently. Leveraging Socket.IO and Redis, this project enables instant messaging across various servers, ensuring a smooth and responsive chatting experience.
 
-This is an official starter Turborepo.
+## How Skat Works:
+Skat employs Socket.IO to manage WebSocket connections, enabling real-time communication between users. The integration with Redis establishes a PubSub architecture, providing a scalable and efficient message distribution system. This setup allows users from various servers to exchange messages instantly, creating a unified chatting experience.
 
-## Using this example
+## Redis Integration and Benefits
 
-Run the following command:
+### Scalability with Redis
 
-```sh
-npx create-turbo@latest
-```
+- **Handling a Huge User Load:** Redis, utilizing its PubSub architecture, efficiently distributes messages among numerous users. When a large user base connects to a single socket server, Redis manages and disseminates messages seamlessly, preventing server overload.
 
-## What's inside?
+### Inter-Server Communication
 
-This Turborepo includes the following packages/apps:
+- **Enabling Seamless Communication Across Servers:** Redis acts as a central communication hub, facilitating message sharing among different socket servers. This enables users connected to various servers to engage in real-time conversations, providing a unified chatting experience.
 
-### Apps and Packages
+### Solving Scalability Challenges
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+- **Avoiding Overloaded Servers:** In the absence of Redis, a single socket server might struggle to manage a high volume of connected users. Redis alleviates this challenge by handling message distribution, ensuring smooth communication even under heavy user traffic.
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+### Redis' Role in Seamless Communication
 
-### Utilities
+Redis serves as a vital messaging broker, enabling effective communication among multiple socket servers. It ensures efficient message distribution among servers, allowing users from different server instances to exchange messages instantly. This seamless cross-server communication is pivotal in maintaining a consistent and responsive chatting experience, made possible by Redis' PubSub architecture.
 
-This Turborepo has some additional tools already setup for you:
+## Technologies Used
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+- **Node.js & TypeScript:** Powering the backend with robustness and enhanced code readability.
+- **Redis:** Employed for efficient real-time message distribution among users.
+- **Aiven Cloud Service:** Hosting the Redis instance for reliability and scalability.
+- **TurboRepo:** Scaling a monorepo setup for streamlined code management across modules/services.
 
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
