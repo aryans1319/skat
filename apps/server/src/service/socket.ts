@@ -1,4 +1,19 @@
 import { Server } from "socket.io"
+import Redis from "ioredis"
+
+const publisher = new Redis({
+    host: 'redis-3b59c91-skat.a.aivencloud.com',
+    port: 28212,
+    username: 'default',
+    password: 'AVNS_ut9UROKemk5EURGj2T_'
+});
+
+const subscriber = new Redis({
+    host: 'redis-3b59c91-skat.a.aivencloud.com',
+    port: 28212,
+    username: 'default',
+    password: 'AVNS_ut9UROKemk5EURGj2T_'
+});
 
 class SocketService {
     private _io: Server;
@@ -22,6 +37,8 @@ class SocketService {
             // when an event is emitted on the socket
             socket.on("event: message", async({ message } : { message: String}) => {
                 console.log("New Message Received on server", message);
+                // now we need to publish the received message to redis
+                await publisher.publish("MESSAGES", JSON.stringify({ message }));
             });
         });
     }
