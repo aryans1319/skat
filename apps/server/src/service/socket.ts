@@ -21,7 +21,7 @@ class SocketService {
             console.log("New socket connection", socket.id);
             // when an event is emitted on the socket
             socket.on("event: message", async({ message } : { message: String}) => {
-                console.log("New Message Received", message);
+                console.log("New Message Received on server", message);
             });
         });
     }
