@@ -1,5 +1,5 @@
 ![Screenshot from 2024-01-02 20-06-22](https://github.com/aryans1319/skat/assets/72180855/6cf1e979-9bbc-4115-9489-030ff468d14f)
-# Skat - A scalable real-time chat application using Redis PubSub Architecture for scaling web-sockets
+# Skat - A scalable real-time chat application using Redis PubSub Architecture along with Kafka for scaling web-sockets
 Skat is a powerful real-time chat application built for seamless communication among multiple users concurrently. Leveraging Socket.IO and Redis, this project enables instant messaging across various servers, ensuring a smooth and responsive chatting experience.
 
 ## How Skat Works:
