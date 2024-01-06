@@ -1,5 +1,5 @@
 import http from 'http'
-import SocketService from './service/socket';
+import SocketService from './services/socket';
 
 async function init() {
     const socketService = new SocketService();
