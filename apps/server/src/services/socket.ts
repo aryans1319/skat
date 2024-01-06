@@ -1,6 +1,5 @@
 import { Server } from "socket.io"
 import Redis from "ioredis"
-import prismaClient from "./prisma";
 import { produceMesage } from "./kafka";
 
 const publisher = new Redis({
