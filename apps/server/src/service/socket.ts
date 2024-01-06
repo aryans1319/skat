@@ -1,5 +1,6 @@
 import { Server } from "socket.io"
 import Redis from "ioredis"
+import prismaClient from "./prisma";
 
 const publisher = new Redis({
     host: 'redis-3b59c91-skat.a.aivencloud.com',
@@ -47,10 +48,16 @@ class SocketService {
 
         // if redis rec msg then we check the channel and 
         // forward all the messages as it is to the client
-        subscriber.on('message', (channel, message) => {
+        subscriber.on('message', async (channel, message) => {
             if(channel === 'MESSAGES'){
                 console.log("new message from redis", message);
                 io.emit("message", message)
+                // Store in DB
+                await prismaClient.message.create({
+                    data: {
+                        text: message,
+                    },
+                })
             }
         })
     }
